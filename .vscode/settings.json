@@ -1,0 +1,10 @@
+{
+    "cmake.sourceDirectory": "${workspaceFolder}/src",
+    "cmake.buildDirectory": "${workspaceFolder}/build",
+    "cmake.environment": {
+        // "OMP_TARGET_OFFLOAD": "MANDATORY",
+        // "LIBOMPTARGET_DEBUG": "1",
+        "LIBOMPTARGET_PLUGIN": "LEVEL0"
+    },
+    "cmake.configureOnEdit": false
+}
