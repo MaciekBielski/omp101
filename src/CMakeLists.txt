@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-set(IntelDPCPP_DIR "/opt/intel/oneapi/compiler/2023.0.0/linux/IntelDPCPP")
+set(IntelDPCPP_DIR "$ENV{HOME}/intel/oneapi/compiler/2023.0.0/linux/IntelDPCPP")
 find_package(IntelDPCPP REQUIRED)
 
 include_directories(${SYCL_INCLUDE_DIR})
@@ -17,6 +17,8 @@ link_libraries(iomp5 omptarget)
 
 add_executable(0_matmul ${PROJECT_SOURCE_DIR}/0_matmul.cc)
 add_executable(1_parallel_pi ${PROJECT_SOURCE_DIR}/1_parallel_pi.cc)
+add_executable(2_parallel_pi_critical ${PROJECT_SOURCE_DIR}/2_parallel_pi_critical.cc)
+add_executable(3_parallel_pi_reduction ${PROJECT_SOURCE_DIR}/3_parallel_pi_reduction.cc)
 
 # add_compile_options(-Werror -Wall -Wextra -pedantic
 #     -Wno-unused-command-line-argument
