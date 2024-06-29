@@ -31,8 +31,11 @@ void sequentialPi() {
 }
 
 void parallelPi() {
-    // Default is $(nproc)
+    // We can get less threads than requested. This is not taken into account here.
+    // This should be checked inside a parallel region by one of threads and saved to shared variable
     omp_set_num_threads(threadsNb);
+    // This is a bit naive. It is possible that different threads will write to the same cache line,
+    // thus invalidating each other's data. This is called false sharing.
     auto subSums = std::array<double, threadsNb>{};
     auto start = ch::high_resolution_clock::now();
 
